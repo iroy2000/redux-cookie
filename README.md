@@ -67,7 +67,7 @@ cookieSet('cool', 'very cool', { path: '' })   // if you option has path
 cookieRemove('cool')  // it won't work :(
 
 // it will work - removed
-cookieRemove('cool, { path: '' }) 
+cookieRemove('cool', { path: '' }) 
 
 ```
 
