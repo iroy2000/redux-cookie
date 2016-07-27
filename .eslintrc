@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+      "standard"
+    ],
+  "plugins": [
+      "standard",
+      "promise"
+    ],
+  "env": {
+      "mocha": true,
+      "node": true
+    },
+  "globals": {
+      "expect": true
+    },
+  "rules": {
+      "arrow-parens": [2, "as-needed"],
+      "no-use-before-define": [2, "nofunc"],
+      "no-unused-expressions": 0,
+      "semi": 0
+    }
+}
