@@ -9,7 +9,7 @@ Make sure it has `get` and `set` in your cookie library implementation.
 ```javascript
 import {createStore, applyMiddleware} from 'redux';
 import Cookies from 'cookies';
-import { createCookieMiddeware } from 'redux-cookie';
+import reduxCookieMiddleware from 'redux-cookie';
 import {createServer} from 'http';
 import reducer from './reducer';
 
@@ -17,7 +17,7 @@ createServer(function(req, res) {
     const cookies = new Cookies(req, res);
     const store = createStore(
       reducer,
-      applyMiddleware(createCookieMiddeware(cookies))
+      applyMiddleware(reduxCookieMiddleware(cookies))
     );
     //...
 }).listen(3000);
@@ -25,12 +25,12 @@ createServer(function(req, res) {
 
 ## Client Side
 ```javascript
-import Cookies from 'cookies-js';
-import { createCookieMiddeware } from 'redux-cookie';
+import Cookies from 'js-cookie';
+import reduxCookieMiddleware from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(createCookieMiddeware(Cookies))
+  applyMiddleware(reduxCookieMiddleware(Cookies))
 );
 ```
 
@@ -60,6 +60,9 @@ if not, it will fall back to `cookieExpire`.
 ```javascript
 import { cookieSet, cookieRemove } from 'redux-cookie';
 
+// Remember it is an action, the following just show you what it does, 
+// and you need to dispatch it if you want to get the value
+
 // Delete a cookie valid to the path of the current page
 cookieSet('cool', 'very cool', { path: '' })   // if you option has path
 
@@ -77,10 +80,10 @@ If you want to prefix your action name
 
 ```javascript
 import Cookies from 'cookies-js';
-import { createCookieMiddeware } from 'redux-cookie';
+import reduxCookieMiddleware from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(createCookieMiddeware(Cookies, '/redux/cookie/'))
+  applyMiddleware(reduxCookieMiddleware(Cookies, '/redux/cookie/'))
 );
 ```
