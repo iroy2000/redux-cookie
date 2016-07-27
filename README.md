@@ -26,7 +26,7 @@ createServer(function(req, res) {
 ## Client Side
 ```javascript
 import Cookies from 'cookies-js';
-import redux-cookie from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
@@ -77,10 +77,10 @@ If you want to prefix your action name
 
 ```javascript
 import Cookies from 'cookies-js';
-import redux-cookie from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(redux-cookie(Cookies, '/redux/cookie/'))
+  applyMiddleware(createCookieMiddeware(Cookies, '/redux/cookie/'))
 );
 ```
