@@ -1,6 +1,6 @@
 {
   "name": "redux-cookie",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Redux cookie middleware for both client and server ( universal )",
   "main": "lib/index.js",
   "files": [

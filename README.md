@@ -9,7 +9,7 @@ Make sure it has `get` and `set` in your cookie library implementation.
 ```javascript
 import {createStore, applyMiddleware} from 'redux';
 import Cookies from 'cookies';
-import redux-cookie from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import {createServer} from 'http';
 import reducer from './reducer';
 
@@ -17,7 +17,7 @@ createServer(function(req, res) {
     const cookies = new Cookies(req, res);
     const store = createStore(
       reducer,
-      applyMiddleware(redux-cookie(cookies))
+      applyMiddleware(createCookieMiddeware(cookies))
     );
     //...
 }).listen(3000);
@@ -30,7 +30,7 @@ import { createCookieMiddeware } from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(redux-cookie(Cookies))
+  applyMiddleware(createCookieMiddeware(Cookies))
 );
 ```
 
