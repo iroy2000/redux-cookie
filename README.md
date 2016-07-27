@@ -44,6 +44,8 @@ const store = createStore(
 ```javascript
 import { cookieGet, cookieSet, cookieExpire } from 'redux-cookie';
 
+// Remember those are actions, the following just show you what it does
+
 cookieSet('cool', 'very cool', { expires: 365 }) // please check your cookie library for what is supported
 
 cookieGet('cool')
@@ -60,8 +62,7 @@ if not, it will fall back to `cookieExpire`.
 ```javascript
 import { cookieSet, cookieRemove } from 'redux-cookie';
 
-// Remember it is an action, the following just show you what it does, 
-// and you need to dispatch it if you want to get the value
+// Remember those are actions, the following just show you what it does
 
 // Delete a cookie valid to the path of the current page
 cookieSet('cool', 'very cool', { path: '' })   // if you option has path
