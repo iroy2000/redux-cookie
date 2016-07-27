@@ -61,12 +61,13 @@ if not, it will fall back to `cookieExpire`.
 import { cookieSet, cookieRemove } from 'redux-cookie';
 
 // Delete a cookie valid to the path of the current page
-
 cookieSet('cool', 'very cool', { path: '' })   // if you option has path
 
+// it won't work - fail
 cookieRemove('cool')  // it won't work :(
 
-cookieRemove('cool, { path: '' }) // it will work :)
+// it will work - removed
+cookieRemove('cool, { path: '' }) 
 
 ```
 
