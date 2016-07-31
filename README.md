@@ -1,6 +1,9 @@
 # redux-cookie
 Redux cookie middleware for both client and server ( universal )
 
+## Build Status
+[![linux build](https://img.shields.io/travis/iroy2000/redux-cookie/master.svg?label=linux+build)](https://travis-ci.org/iroy2000/redux-cookie)
+
 ## Prerequiste
 Assuming you are using a cookie library, like `js-cookie` or your own cookie library implementation.
 Make sure it has `get` and `set` in your cookie library implementation.
