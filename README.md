@@ -9,7 +9,7 @@ Make sure it has `get` and `set` in your cookie library implementation.
 ```javascript
 import {createStore, applyMiddleware} from 'redux';
 import Cookies from 'cookies';
-import reduxCookieMiddleware from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import {createServer} from 'http';
 import reducer from './reducer';
 
@@ -17,7 +17,7 @@ createServer(function(req, res) {
     const cookies = new Cookies(req, res);
     const store = createStore(
       reducer,
-      applyMiddleware(reduxCookieMiddleware(cookies))
+      applyMiddleware(createCookieMiddeware(cookies))
     );
     //...
 }).listen(3000);
@@ -26,11 +26,11 @@ createServer(function(req, res) {
 ## Client Side
 ```javascript
 import Cookies from 'js-cookie';
-import reduxCookieMiddleware from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(reduxCookieMiddleware(Cookies))
+  applyMiddleware(createCookieMiddeware(Cookies))
 );
 ```
 
@@ -81,10 +81,10 @@ If you want to prefix your action name
 
 ```javascript
 import Cookies from 'cookies-js';
-import reduxCookieMiddleware from 'redux-cookie';
+import { createCookieMiddeware } from 'redux-cookie';
 import reducer from './reducer';
 const store = createStore(
   reducer,
-  applyMiddleware(reduxCookieMiddleware(Cookies, '/redux/cookie/'))
+  applyMiddleware(createCookieMiddeware(Cookies, '/redux/cookie/'))
 );
 ```
