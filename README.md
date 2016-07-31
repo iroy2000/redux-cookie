@@ -62,7 +62,8 @@ if not, it will fall back to `cookieExpire`.
 ```javascript
 import { cookieSet, cookieRemove } from 'redux-cookie';
 
-// Remember those are actions, the following just show you what it does
+// !! important >> Remember those are actions, the following just show you what it does
+// If you have question about the usage, please take a look at the test file
 
 // Delete a cookie valid to the path of the current page
 cookieSet('cool', 'very cool', { path: '' })   // if you option has path
