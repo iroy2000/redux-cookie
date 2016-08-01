@@ -4,6 +4,9 @@ Redux cookie middleware for both client and server ( universal )
 ## Build Status
 [![linux build](https://travis-ci.org/iroy2000/redux-cookie.svg?branch=master)](https://travis-ci.org/iroy2000/redux-cookie)
 
+## Note
+Since version `0.5.6`, this library has changed the action signature from `cookieSet, cookieGet and cookieExpire` to `setCookie, getCookie and expireCookie`.
+
 ## Prerequiste
 Assuming you are using a cookie library, like `js-cookie` or your own cookie library implementation.
 Make sure it has `get` and `set` in your cookie library implementation.
