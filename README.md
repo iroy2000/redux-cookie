@@ -45,37 +45,38 @@ const store = createStore(
 `cookieSet` takes a "cookie name", "cookie value" and an optional "options"  // options like "expires" or options support by your cookie library
 
 ```javascript
-import { cookieGet, cookieSet, cookieExpire } from 'redux-cookie';
+import { getCookie, setCookie, expireCookie } from 'redux-cookie';
 
-// Remember those are actions, the following just show you what it does
+// !! important >> Remember those are actions, the following just show you what it does
+// Please look at the test file to see examples on how to dispatch the action
 
-cookieSet('cool', 'very cool', { expires: 365 }) // please check your cookie library for what is supported
+setCookie('cool', 'very cool', { expires: 365 }) // please check your cookie library for what is supported
 
-cookieGet('cool')
+getCookie('cool')
 
-cookieExpire('cool')  // expire cookie now
+expireCookie('cool')  // expire cookie now
 
 ```
 
-**Note:** `redux-cookie` also expose an action `cookieRemove` if your library has `remove` implementation, 
-if not, it will fall back to `cookieExpire`.
+**Note:** `redux-cookie` also expose an action `removeCookie` if your library has `remove` implementation, 
+if not, it will fall back to `expireCookie`.
 
-`cookieRemove` takes a "cookie name" and an optional "options"
+`removeCookie` takes a "cookie name" and an optional "options"
 
 ```javascript
-import { cookieSet, cookieRemove } from 'redux-cookie';
+import { setCookie, removeCookie } from 'redux-cookie';
 
 // !! important >> Remember those are actions, the following just show you what it does
 // If you have question about the usage, please take a look at the test file
 
 // Delete a cookie valid to the path of the current page
-cookieSet('cool', 'very cool', { path: '' })   // if you option has path
+setCookie('cool', 'very cool', { path: '' })   // if you option has path
 
 // it won't work - fail
-cookieRemove('cool')  // it won't work :(
+removeCookie('cool')  // it won't work :(
 
 // it will work - removed
-cookieRemove('cool', { path: '' }) 
+removeCookie('cool', { path: '' }) 
 
 ```
 

@@ -5,19 +5,19 @@ let REDUX_COOKIES_REMOVE = 'REDUX_COOKIES_REMOVE';
 
 export const getName = (prefix, itemName) => prefix + itemName;
 
-export const cookieGet = name => {
+export const getCookie = name => {
   return { type: REDUX_COOKIES_GET, name };
 };
 
-export const cookieSet = (name, value, options = {}) => {
+export const setCookie = (name, value, options = {}) => {
   return { type: REDUX_COOKIES_SET, name, value, options };
 };
 
-export const cookieExpire = name => {
+export const expireCookie = name => {
   return { type: REDUX_COOKIES_EXPIRE, name };
 };
 
-export const cookieRemove = (name, options) => {
+export const removeCookie = (name, options) => {
   return { type: REDUX_COOKIES_REMOVE, name, options };
 };
 
