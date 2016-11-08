@@ -21,7 +21,7 @@ export const removeCookie = (name, options) => {
   return { type: REDUX_COOKIES_REMOVE, name, options };
 };
 
-export const createCookieMiddeware = (cookies, prefix = '') => {
+export const createCookieMiddleware = (cookies, prefix = '') => {
   const actionsMap = {};
 
   REDUX_COOKIES_GET = getName(prefix, REDUX_COOKIES_GET);
@@ -70,4 +70,4 @@ export const createCookieMiddeware = (cookies, prefix = '') => {
   };
 };
 
-export default createCookieMiddeware;
+export default createCookieMiddleware;
