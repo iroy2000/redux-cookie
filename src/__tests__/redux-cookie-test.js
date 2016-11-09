@@ -1,4 +1,4 @@
-import { createCookieMiddeware, getCookie, setCookie, expireCookie } from '../';
+import { createCookieMiddleware, getCookie, setCookie, expireCookie } from '../';
 import { createStore, applyMiddleware } from 'redux'
 import { spy } from 'sinon';
 import { expect } from 'chai';
@@ -19,9 +19,9 @@ function create (...mw) {
   return applyMiddleware(...mw)(createStore)(() => {}, {})
 }
 
-describe('createCookieMiddeware', () => {
+describe('createCookieMiddleware', () => {
   beforeEach(() => {
-    store = create(createCookieMiddeware(__cookie));
+    store = create(createCookieMiddleware(__cookie));
   });
 
   afterEach(() => {
