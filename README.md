@@ -100,3 +100,8 @@ const store = createStore(
   applyMiddleware(createCookieMiddleware(Cookies, '/redux/cookie/'))
 );
 ```
+
+## Known Issues
+
+If you are creating multiple createCookieMiddle, you cannot use prefix or it will introduce a bug https://github.com/iroy2000/redux-cookie/issues/3.  At the meantime, we are trying to brainstorm the best way to handle this case - https://github.com/iroy2000/redux-cookie/pull/4
+
