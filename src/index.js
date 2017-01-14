@@ -3,7 +3,7 @@ let REDUX_COOKIES_SET = 'REDUX_COOKIES_SET';
 let REDUX_COOKIES_EXPIRE = 'REDUX_COOKIES_EXPIRE';
 let REDUX_COOKIES_REMOVE = 'REDUX_COOKIES_REMOVE';
 
-const PREFIX_TEST = 'REDUX_COOKIES_GET';
+const _REDUX_COOKIES_GET = 'REDUX_COOKIES_GET';
 
 export const getName = (prefix, itemName) => `${prefix}${itemName}`;
 
@@ -27,9 +27,9 @@ export const createCookieMiddleware = (cookies, prefix = '') => {
   const actionsMap = {};
 
   // It is to check if it has prefixed
-  // You can only prefix once, as it is consider global
+  // You can only prefix once, as it is consider gl
   // https://github.com/iroy2000/redux-cookie/issues/3
-  if(PREFIX_TEST === REDUX_COOKIES_GET) {
+  if(_REDUX_COOKIES_GET === REDUX_COOKIES_GET) {
     REDUX_COOKIES_GET = getName(prefix, REDUX_COOKIES_GET);
     REDUX_COOKIES_SET = getName(prefix, REDUX_COOKIES_SET);
     REDUX_COOKIES_EXPIRE = getName(prefix, REDUX_COOKIES_EXPIRE);
@@ -67,6 +67,9 @@ export const createCookieMiddleware = (cookies, prefix = '') => {
   }
 
   return () => next => action => {
+
+    console.log(actionsMap, action)
+
     let currentActionHandler = actionsMap[action.type];
 
     if (currentActionHandler) {
