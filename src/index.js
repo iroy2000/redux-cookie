@@ -1,9 +1,9 @@
+const _REDUX_COOKIES_GET = 'REDUX_COOKIES_GET';
+
 let REDUX_COOKIES_GET = 'REDUX_COOKIES_GET';
 let REDUX_COOKIES_SET = 'REDUX_COOKIES_SET';
 let REDUX_COOKIES_EXPIRE = 'REDUX_COOKIES_EXPIRE';
 let REDUX_COOKIES_REMOVE = 'REDUX_COOKIES_REMOVE';
-
-const _REDUX_COOKIES_GET = 'REDUX_COOKIES_GET';
 
 export const getName = (prefix, itemName) => `${prefix}${itemName}`;
 
@@ -67,9 +67,6 @@ export const createCookieMiddleware = (cookies, prefix = '') => {
   }
 
   return () => next => action => {
-
-    console.log(actionsMap, action)
-
     let currentActionHandler = actionsMap[action.type];
 
     if (currentActionHandler) {
