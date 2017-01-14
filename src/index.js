@@ -27,7 +27,7 @@ export const createCookieMiddleware = (cookies, prefix = '') => {
   const actionsMap = {};
 
   // It is to check if it has prefixed
-  // You can only prefix once, as it is consider gl
+  // You can only prefix once, subsequent prefix will be ignored
   // https://github.com/iroy2000/redux-cookie/issues/3
   if(_REDUX_COOKIES_GET === REDUX_COOKIES_GET) {
     REDUX_COOKIES_GET = getName(prefix, REDUX_COOKIES_GET);
